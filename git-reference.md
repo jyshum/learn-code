@@ -71,7 +71,8 @@ git commit -m "message"
 Create a commit with everything currently staged. The message should say what changed and why, not just what files were touched.
 
 ```bash
-git commit --amend
+git commit --amend -m "message" # modifies just message
+git commit --amend              # general
 ```
 Rewrite the most recent commit. Adds any staged changes and lets you edit the message. Only use this before pushing. Amending a pushed commit causes problems for anyone who pulled it.
 
@@ -106,6 +107,11 @@ Create a new branch and switch to it in one step.
 git branch -d <name>
 ```
 Delete a branch. Git refuses if the branch has unmerged changes. Use `-D` to force delete.
+
+```bash
+git branch -m <branch>
+```
+Rename a branch. Replace "<branch>" with the new name.
 
 ```bash
 git merge <branch>

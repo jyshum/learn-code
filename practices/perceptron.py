@@ -18,6 +18,16 @@ class Perceptron:
 
         y_ = [1 if i > 0 else 0 for i in y]
 
+        for _ in range(self.n_iterations):
+            for idx, x_i in enumerate(X):
+                linear_output = np.dot(x_i, self.weights) + self.bias
+                y_predicted = self.activation_function(linear_output)
+
+                # Perceptron update rule
+                update = self.lr * (y_[idx] - y_predicted)
+                self.weights += update * x_i
+                self.bias += update
+
     def predict(self, X):
         linear_output = np.dot(X, self.weights) + self.bias
         y_predicted = self.activation_function(linear_output)
